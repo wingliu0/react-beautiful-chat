@@ -10188,7 +10188,9 @@ var MessageList = function (_Component) {
       'div',
       { className: 'sc-message-list', ref: function ref(el) {
           return _this2.scrollList = el;
-        }, onScroll: this.props.onScroll },
+        }, onScroll: function onScroll() {
+          return _this2.props.onScroll(_this2.scrollList);
+        } },
       this.props.messages.map(function (message, i) {
         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__Messages__["a" /* default */], {
           message: message,
