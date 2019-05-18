@@ -14,7 +14,7 @@ class MessageList extends Component {
           return <Message
             message={message}
             key={i}
-            imageUrl={this.props.agentProfile.imageUrl}
+            imageUrl={this.props.imageUrl}
             onDelete={this.props.onDelete}
           />
         })}

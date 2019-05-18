@@ -27,7 +27,7 @@ class Message extends Component {
       <div className="sc-message">
         <div className={contentClassList.join(" ")}>
           <div className="sc-message--avatar" style={{
-            backgroundImage: `url(${chatIconUrl || this.props.agentProfile.imageUrl})`
+            backgroundImage: `url(${chatIconUrl || this.props.imageUrl})`
           }}></div>
           {this._renderMessageOfType(this.props.message.type)}
         </div>
