@@ -39,7 +39,7 @@ var Message = function (_Component) {
         'div',
         { className: contentClassList.join(" ") },
         React.createElement('div', { className: 'sc-message--avatar', style: {
-            backgroundImage: 'url(' + chatIconUrl + ')'
+            backgroundImage: 'url(' + (chatIconUrl || this.props.imageUrl) + ')'
           } }),
         this._renderMessageOfType(this.props.message.type)
       )

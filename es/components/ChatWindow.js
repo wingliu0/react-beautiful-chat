@@ -43,13 +43,15 @@ var ChatWindow = function (_Component) {
       React.createElement(MessageList, {
         messages: messageList,
         imageUrl: this.props.agentProfile.imageUrl,
-        onDelete: this.props.onDelete
+        onDelete: this.props.onDelete,
+        onScroll: this.props.onScroll
       }),
       React.createElement(UserInput, {
         showEmoji: this.props.showEmoji,
         onSubmit: this.onUserInputSubmit,
         showFile: this.props.showFile,
-        onKeyPress: this.props.onKeyPress })
+        onKeyPress: this.props.onKeyPress
+      })
     );
   };
 

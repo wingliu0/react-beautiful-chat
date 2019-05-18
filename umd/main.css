@@ -1,5 +1,5 @@
 /*!
- * react-beautiful-chat v1.0.0 - https://mattmezza.github.io/react-beautiful-chat/
+ * react-beautiful-chat v1.1.0 - https://mattmezza.github.io/react-beautiful-chat/
  * MIT Licensed
  */
 .sc-emoji-picker {
@@ -276,6 +276,8 @@
   -ms-flex-item-align: center;
       align-self: center;
   padding: 10px;
+  width: 55px;
+  height: 55px;
 }
 
 .sc-header--team-name {
@@ -356,8 +358,8 @@
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center;
-  min-width: 30px;
-  min-height: 30px;
+  max-width: 30px;
+  max-height: 30px;
   border-radius: 50%;
   -ms-flex-item-align: center;
       align-self: center;

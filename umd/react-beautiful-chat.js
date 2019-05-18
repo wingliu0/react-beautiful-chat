@@ -1,5 +1,5 @@
 /*!
- * react-beautiful-chat v1.0.0 - https://mattmezza.github.io/react-beautiful-chat/
+ * react-beautiful-chat v1.1.0 - https://mattmezza.github.io/react-beautiful-chat/
  * MIT Licensed
  */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -9963,13 +9963,15 @@ var ChatWindow = function (_Component) {
       __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__MessageList__["a" /* default */], {
         messages: messageList,
         imageUrl: this.props.agentProfile.imageUrl,
-        onDelete: this.props.onDelete
+        onDelete: this.props.onDelete,
+        onScroll: this.props.onScroll
       }),
       __WEBPACK_IMPORTED_MODULE_1_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__UserInput__["a" /* default */], {
         showEmoji: this.props.showEmoji,
         onSubmit: this.onUserInputSubmit,
         showFile: this.props.showFile,
-        onKeyPress: this.props.onKeyPress })
+        onKeyPress: this.props.onKeyPress
+      })
     );
   };
 
@@ -10110,7 +10112,8 @@ var Launcher = function (_Component) {
         showFile: this.props.showFile,
         onKeyPress: this.props.onKeyPress,
         onKeyPressDebounce: this.props.onKeyPressDebounce,
-        onDelete: this.props.onDelete
+        onDelete: this.props.onDelete,
+        onScroll: this.props.onScroll
       })
     );
   };
@@ -10185,9 +10188,14 @@ var MessageList = function (_Component) {
       'div',
       { className: 'sc-message-list', ref: function ref(el) {
           return _this2.scrollList = el;
-        } },
+        }, onScroll: this.props.onScroll },
       this.props.messages.map(function (message, i) {
-        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__Messages__["a" /* default */], { message: message, key: i, onDelete: _this2.props.onDelete });
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__Messages__["a" /* default */], {
+          message: message,
+          key: i,
+          imageUrl: _this2.props.imageUrl,
+          onDelete: _this2.props.onDelete
+        });
       })
     );
   };
@@ -10369,7 +10377,7 @@ var Message = function (_Component) {
         'div',
         { className: contentClassList.join(" ") },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'sc-message--avatar', style: {
-            backgroundImage: 'url(' + __WEBPACK_IMPORTED_MODULE_4__assets_chat_icon_svg___default.a + ')'
+            backgroundImage: 'url(' + (__WEBPACK_IMPORTED_MODULE_4__assets_chat_icon_svg___default.a || this.props.imageUrl) + ')'
           } }),
         this._renderMessageOfType(this.props.message.type)
       )
