@@ -9,9 +9,14 @@ class MessageList extends Component {
 
   render () {
     return (
-      <div className="sc-message-list" ref={el => this.scrollList = el}>
+      <div className="sc-message-list" ref={el => this.scrollList = el} onScroll={this.props.onScroll}>
         {this.props.messages.map((message, i) => {
-          return <Message message={message} key={i} onDelete={this.props.onDelete} />
+          return <Message
+            message={message}
+            key={i}
+            imageUrl={this.props.agentProfile.imageUrl}
+            onDelete={this.props.onDelete}
+          />
         })}
       </div>)
   }

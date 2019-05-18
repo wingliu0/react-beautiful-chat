@@ -35,12 +35,14 @@ class ChatWindow extends Component {
           messages={messageList}
           imageUrl={this.props.agentProfile.imageUrl}
           onDelete={this.props.onDelete}
+          onScroll={this.props.onScroll}
         />
         <UserInput
           showEmoji={this.props.showEmoji}
           onSubmit={this.onUserInputSubmit}
           showFile={this.props.showFile}
-          onKeyPress={this.props.onKeyPress} />
+          onKeyPress={this.props.onKeyPress}
+        />
       </div>
     )
   }
