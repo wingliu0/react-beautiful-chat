@@ -10377,7 +10377,7 @@ var Message = function (_Component) {
         'div',
         { className: contentClassList.join(" ") },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'sc-message--avatar', style: {
-            backgroundImage: 'url(' + (__WEBPACK_IMPORTED_MODULE_4__assets_chat_icon_svg___default.a || this.props.imageUrl) + ')'
+            backgroundImage: 'url(' + (this.props.imageUrl || __WEBPACK_IMPORTED_MODULE_4__assets_chat_icon_svg___default.a) + ')'
           } }),
         this._renderMessageOfType(this.props.message.type)
       )
