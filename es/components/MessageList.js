@@ -17,7 +17,24 @@ var MessageList = function (_Component) {
   }
 
   MessageList.prototype.componentDidUpdate = function componentDidUpdate(prevProps, prevState) {
-    this.scrollList.scrollTop = this.scrollList.scrollHeight;
+    var shouldScrollToBottom = this.shouldScrollToBottom();
+    if (shouldScrollToBottom) {
+      this.scrollList.scrollTop = this.scrollList.scrollHeight;
+    }
+  };
+
+  MessageList.prototype.shouldScrollToBottom = function shouldScrollToBottom() {
+    return this.props.alwaysScrollToBottom || this.scrollList.scrollTop > this.scrollList.scrollHeight - 600;
+  };
+
+  MessageList.prototype.handleScroll = function handleScroll(e) {
+    if (e.target.scrollTop === 0) {
+      // console.log('scrollToTop');
+      // this.$emit('scrollToTop')
+    }
+    if (typeof this.props.onScroll === 'function') {
+      this.props.onScroll(this.scrollList);
+    }
   };
 
   MessageList.prototype.render = function render() {
@@ -27,8 +44,8 @@ var MessageList = function (_Component) {
       'div',
       { className: 'sc-message-list', ref: function ref(el) {
           return _this2.scrollList = el;
-        }, onScroll: function onScroll() {
-          return _this2.props.onScroll(_this2.scrollList);
+        }, onScroll: function onScroll(e) {
+          return _this2.handleScroll(e);
         } },
       this.props.messages.map(function (message, i) {
         return React.createElement(Message, {
